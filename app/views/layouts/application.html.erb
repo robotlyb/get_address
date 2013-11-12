@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GetAddress</title>
+  <title>穿衣利器论坛</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<%= link_to "穿衣利器",root_path,id:"logo"%>
+				<nav>
+					<ul class="nav pull-right">
+						<%= link_to "主页", root_path%>
+						<%= link_to "帮助", help_path%>
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
 
-<%= yield %>
+	</header>
+	<div class="container">
+		<%= yield %>
+	</div>
+	<footer class="footer">
+		<small>
+			<a href="localhost:3000">穿衣利器论坛</a>由<a href="#">startx</a>发起
 
+		</small>
+		<nav>
+			<ul>
+				<%= link_to "关于我们",about_path%>
+				<%= link_to "联系我们", contact_path%>
+			</ul>
+		</nav>
+	</footer>
 </body>
 </html>
