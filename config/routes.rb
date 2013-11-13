@@ -6,9 +6,10 @@ GetAddress::Application.routes.draw do
 	match '/contact', to: 'static_pages#contact', via: 'get'
 	root to: 'static_pages#home'
 #	post '/:name'=> 'users#create'
-
+	resources :sessions, only: [:new, :create, :destroy]
 	resources :users
-
+	match '/signin', to: 'sessions#new', via: 'get'
+	match '/signout', to: 'sessions#destroy', via: 'delete'
 # The priority is based upon order of creation:
   # first created -> highest priority.
 
