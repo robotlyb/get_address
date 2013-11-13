@@ -1,7 +1,9 @@
+#encoding: utf-8
 <h1>立即注册</h1>
 <div class="row">
 	<div class="span6 offset4">
 		<%= form_for(@user) do |f|%>
+			<%= render 'shared/error_messages'%>
 			<%= f.label :name ,"姓名"%>
 			<%= f.text_field :name, :autofocus => true, :style=> "width: 280px"%>
 
@@ -12,7 +14,7 @@
 			<%= f.password_field :password,:autofocus => true, :style => "width: 280px"%>
 
 			<%= f.label :password_confirmation, "确认密码"%>
-			<%= f.password_field :password_confirmationi,:autofocus => true, :style => "width: 280px"%>
+			<%= f.password_field :password_confirmation,:autofocus => true, :style => "width: 280px"%>
 			<br />
 			<br />
 			<br />
