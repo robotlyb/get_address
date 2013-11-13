@@ -1,10 +1,15 @@
 <div class="row">
 	<aside class="span4">
 		<section>
+			<h3>
+				<% if flash[:notice]%>
+				<%= flash[:notice]%>
+				<% end %>
+			</h3>
 			<h1>
-				<%= gravatar_for @user%>
-				<%=@user.name%>
-				<%= @user.email%>
+				<%= gravatar_for @user%><br />
+				<%=@user.name%><br />
+				<%= @user.email%><br />
 			</h1>
 		</section>
 	</aside>
