@@ -1,0 +1,35 @@
+<h1 align="center">编辑个人资料</h1>
+<br />
+<br />
+<br />
+
+<div class="row">
+	<div class="span6 offset3">
+			<aside class="span6">
+			<section align="left">
+				<%= gravatar_for @user%>
+					<h5><a href="http://gravatar.com/emails">更改头像</a></h5>
+			</section>
+			<section>
+		<%= form_for(@user) do |f|%>
+			<%= render 'shared/error_messages'%>
+
+			<%= f.label :name, "姓名"%>
+			<%= f.text_field :name, :autofocus => true, :style => "width: 280px"%>
+			<br />
+			<%= f.label :email, "邮箱"%>
+			<%= f.text_field :email, :autofocus => true, :style => "width: 280px"%>
+			<br />
+			<%= f.label :password, "密码"%>
+			<%= f.password_field :password,  :style => "width: 280px"%>
+			<br />
+			<%= f.label :password_confirmation, "确认密码"%>
+			<%= f.password_field :password_confirmation,  :style => "width: 280px"%>
+			<br />
+			<br />
+			<%= f.submit "保存更改" , :style=>{align: "center"}%>
+		<% end %>
+		</section>
+		</aside>
+	</div>	
+</div>

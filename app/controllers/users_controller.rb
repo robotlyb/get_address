@@ -1,6 +1,8 @@
 #encoding: utf-8
 class UsersController < ApplicationController
 #	require 'debbuger'
+	before_filter :signed_in_user, only: [:edit, :update]
+	before_filter :correct_user, only: [:edit, :update]
 	def new
 		@user = User.new
 	end
@@ -14,11 +16,34 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			if @user.save
 				sign_in @user
-				flash[:success] = "注册成功！你当前以#{@user.name}身份登录！"	
+				flash[:notice] = "注册成功！你当前以#{@user.name}身份登录！"	
 				redirect_to @user
 			else
 				format.html{render action: 'new'}
 			end
 		end		
 	end	
+	def edit
+		@user = User.find(params[:id])
+	end
+	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(params[:user])
+			flash[:success] = "修改成功！"
+			redirect_to @user
+		else
+			render 'edit'
+		end
+	end
+	private
+		def signed_in_user
+			unless signed_in?
+				store_location
+				redirect_to signin_url, notice: "请先登录！" 
+			end
+		end	
+		def correct_user
+			@user = User.find(params[:id])
+			redirect_to(root_path) unless current_user?(@user)
+		end
 end

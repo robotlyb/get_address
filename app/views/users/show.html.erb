@@ -1,15 +1,22 @@
+<h3>
+	<% if flash[:notice]%>
+	<%= flash[:notice]%>
+	<% end %>
+</h3>
 <div class="row">
-	<aside class="span4">
+	<aside class="span6">
 		<section>
 			<h3>
 				<% if flash[:notice]%>
 				<%= flash[:notice]%>
 				<% end %>
+				<% if flash[:success]%>
+				<%= flash[:success]%>
+				<% end %>
 			</h3>
 			<h1>
 				<%= gravatar_for @user%><br />
 				<%=@user.name%><br />
-				<%= @user.email%><br />
 			</h1>
 		</section>
 	</aside>
