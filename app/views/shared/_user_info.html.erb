@@ -1,0 +1,12 @@
+<a href="<%= user_path(current_user)%>">
+	<%= gravatar_for current_user, size:52%>
+</a>
+<h3>
+	<%= current_user.name%>
+</h3>
+<span>
+	<%= link_to "查看我的账户", current_user%>
+</span>
+<span>
+	帖子	<%= current_user.notes.count %>
+</span>

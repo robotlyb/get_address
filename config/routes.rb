@@ -10,6 +10,8 @@ GetAddress::Application.routes.draw do
 	resources :users
 	match '/signin', to: 'sessions#new', via: 'get'
 	match '/signout', to: 'sessions#destroy', via: 'delete'
+
+	resources :notes, only: [:create, :destroy]
 # The priority is based upon order of creation:
   # first created -> highest priority.
 

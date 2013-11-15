@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 			sign_in user
 			redirect_back_or user
 		else
-			flash[:error] = "不匹配帐号与密码！请重新填写"
+			flash[:error] = "不匹配的帐号与密码！请重新填写"
 			render 'new'
 		end	
 	end

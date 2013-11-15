@@ -12,7 +12,7 @@
 			</section>
 			<section>
 		<%= form_for(@user) do |f|%>
-			<%= render 'shared/error_messages'%>
+			<%= render 'shared/error_messages', object: f.object%>
 
 			<%= f.label :name, "姓名"%>
 			<%= f.text_field :name, :autofocus => true, :style => "width: 280px"%>
@@ -27,7 +27,7 @@
 			<%= f.password_field :password_confirmation,  :style => "width: 280px"%>
 			<br />
 			<br />
-			<%= f.submit "保存更改" , :style=>{align: "center"}%>
+			<%= f.submit "保存更改" ,class: "btn btn-primary", :style=>{align: "center"}%>
 		<% end %>
 		</section>
 		</aside>

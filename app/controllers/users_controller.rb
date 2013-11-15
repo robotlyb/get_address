@@ -1,6 +1,6 @@
 #encoding: utf-8
 class UsersController < ApplicationController
-#	require 'debbuger'
+require 'debbuger'
 	before_filter :signed_in_user, only: [:edit, :update]
 	before_filter :correct_user, only: [:edit, :update]
 	def new
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 	end
 	def show 
 		@user = User.find(params[:id])
-#	debbuger
+debuggr
+	@notes = @user.notes.paginate(page: params[:page])
 	end
 	def create
 		@user = User.new(params[:user])
@@ -36,12 +37,6 @@ class UsersController < ApplicationController
 		end
 	end
 	private
-		def signed_in_user
-			unless signed_in?
-				store_location
-				redirect_to signin_url, notice: "请先登录！" 
-			end
-		end	
 		def correct_user
 			@user = User.find(params[:id])
 			redirect_to(root_path) unless current_user?(@user)

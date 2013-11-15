@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-  end
+		@note = current_user.notes.build if signed_in?
+	end
 
   def help
   end
