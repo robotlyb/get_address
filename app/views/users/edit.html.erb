@@ -10,26 +10,39 @@
 				<%= gravatar_for @user%>
 					<h5><a href="http://gravatar.com/emails">更改头像</a></h5>
 			</section>
-			<section>
-		<%= form_for(@user) do |f|%>
-			<%= render 'shared/error_messages', object: f.object%>
-
-			<%= f.label :name, "姓名"%>
-			<%= f.text_field :name, :autofocus => true, :style => "width: 280px"%>
+		<div class="form-horizontal">	
+			<%= form_for(@user) do |f|%>
+				<%= render 'shared/error_messages', object: f.object%>
+				<div class="control-group">
+					<%= f.label :name, "用户名", class: "control-label"%>
+					<div class="controls">	
+						<%= f.text_field :name, :autofocus => true, :style => "width: 280px", placeholder: "输入用户名"%>
+					</div>
+				</div>
+				<div class="control-group">
+					<%= f.label :email, "邮箱",class: "control-label"%>
+					<div class="controls">	
+						<%= f.text_field :email, :autofocus => true, :style => "width: 280px",placeholder: "输入邮箱"%>
+					</div>	
+				</div>
+				<div class="control-group">
+					<%= f.label :password, "密码", class: "control-label"%>
+					<div class="controls">	
+						<%= f.password_field :password,  :style => "width: 280px",placeholder: "输入密码"%>
+					</div>	
+				</div>
+				<div class="control-group">
+					<%= f.label :password_confirmation, "确认密码",class: "control-label"%>
+					<div class="controls">	
+						<%= f.password_field :password_confirmation,  :style => "width: 280px",placeholder: "再输入一遍密码"%>
+					</div>	
+				</div>
 			<br />
-			<%= f.label :email, "邮箱"%>
-			<%= f.text_field :email, :autofocus => true, :style => "width: 280px"%>
-			<br />
-			<%= f.label :password, "密码"%>
-			<%= f.password_field :password,  :style => "width: 280px"%>
-			<br />
-			<%= f.label :password_confirmation, "确认密码"%>
-			<%= f.password_field :password_confirmation,  :style => "width: 280px"%>
-			<br />
-			<br />
-			<%= f.submit "保存更改" ,class: "btn btn-primary", :style=>{align: "center"}%>
+				 <div class="text-center">
+					<%= f.submit "保存更改" ,class: "btn btn-info", :style=>{align: "center"}%>
+				</div>
 		<% end %>
-		</section>
+		</div>	
 		</aside>
 	</div>	
 </div>

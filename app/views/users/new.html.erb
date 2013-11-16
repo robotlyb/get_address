@@ -1,25 +1,42 @@
 #encoding: utf-8
-<h1>立即注册</h1>
+<legend class="text-center">立即注册</legend>
 <div class="row">
-	<div class="span6 offset4">
-		<%= form_for(@user) do |f|%>
-			<%= render 'shared/error_messages', object: f.object%>
-			<%= f.label :name ,"用户名"%>
-			<%= f.text_field :name, :autofocus => true, :style=> "width: 280px"%>
-
-			<%= f.label :email, "邮箱"%>
-			<%= f.text_field :email, :autofocus => true , :style => "width: 280px"%>
-
-			<%= f.label :password, "密码"%>
-			<%= f.password_field :password,:autofocus => true, :style => "width: 280px"%>
-
-			<%= f.label :password_confirmation, "确认密码"%>
-			<%= f.password_field :password_confirmation,:autofocus => true, :style => "width: 280px"%>
+	<div class="span6 offset2">
+				<div class="form-horizontal">	
+			<%= form_for(@user) do |f|%>
+				<%= render 'shared/error_messages', object: f.object%>
+				<div class="control-group">
+					<%= f.label :name, "用户名", class: "control-label"%>
+					<div class="controls">	
+						<%= f.text_field :name, :autofocus => true, :style => "width: 280px", placeholder: "输入用户名"%>
+					</div>
+				</div>
+				<div class="control-group">
+					<%= f.label :email, "邮箱",class: "control-label"%>
+					<div class="controls">	
+						<%= f.text_field :email, :autofocus => true, :style => "width: 280px",placeholder: "输入邮箱"%>
+					</div>	
+				</div>
+				<div class="control-group">
+					<%= f.label :password, "密码", class: "control-label"%>
+					<div class="controls">	
+						<%= f.password_field :password,  :style => "width: 280px",placeholder: "输入密码"%>
+					</div>	
+				</div>
+				<div class="control-group">
+					<%= f.label :password_confirmation, "确认密码",class: "control-label"%>
+					<div class="controls">	
+						<%= f.password_field :password_confirmation,  :style => "width: 280px",placeholder: "再输入一遍密码"%>
+					</div>	
+				</div>
 			<br />
-			<br />
-			<br />
-			<%= f.submit "加入论坛", class: "btn btn-large btn-primary offset1"%>
+				 <div class="text-center">
+					<%= f.submit "保存更改" ,class: "btn btn-info", :style=>{align: "center"}%>
+				</div>
 		<% end %>
-		<h5>已有帐号？<%= link_to "马上登录!", signin_path%></h5>	 
+		</div>
+		<div class="text-center">
+			<h5>已有帐号？<%= link_to "马上登录!", signin_path%></h5>
+		</div>
 	</div>
 </div>

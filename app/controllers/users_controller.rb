@@ -1,6 +1,6 @@
 #encoding: utf-8
 class UsersController < ApplicationController
-require 'debbuger'
+#require 'debugger'
 	before_filter :signed_in_user, only: [:edit, :update]
 	before_filter :correct_user, only: [:edit, :update]
 	def new
@@ -8,8 +8,8 @@ require 'debbuger'
 	end
 	def show 
 		@user = User.find(params[:id])
-debuggr
-	@notes = @user.notes.paginate(page: params[:page])
+#debugger
+#	@notes = @user.notes.paginate(page: params[:page])
 	end
 	def create
 		@user = User.new(params[:user])
