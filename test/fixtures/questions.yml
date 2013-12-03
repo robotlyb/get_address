@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  situation: MyString
+  gender: MyString
+  min_weight: 1
+  max_weight: 1
+  min_height: 1
+  max_height: 1
+  min_price: 1
+  max_price: 1
+  color: MyString
+
+two:
+  user_id: 1
+  situation: MyString
+  gender: MyString
+  min_weight: 1
+  max_weight: 1
+  min_height: 1
+  max_height: 1
+  min_price: 1
+  max_price: 1
+  color: MyString

@@ -22,7 +22,7 @@
 	</aside>
 	<!div class="span8">
 		<!% if @user.notes.any? %>
-			<!h3>帖子<!%= @user.notes.count%><!/h3>
+			<!h3><!%= @user.notes.count%><!/h3>
 			<!%= will_paginate @notes%>
 			<!ol class="notes">
 				<!%= render @notes%>

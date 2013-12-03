@@ -11,17 +11,63 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115031357) do
+ActiveRecord::Schema.define(:version => 20131203092410) do
 
-  create_table "notes", :force => true do |t|
-    t.string   "title"
-    t.string   "content"
+  create_table "answers", :force => true do |t|
+    t.integer  "question_id"
     t.integer  "user_id"
+    t.boolean  "flag"
+    t.string   "clothes_url"
+    t.string   "pants_url"
+    t.string   "shoes_url"
+    t.string   "other_dress"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "notes", ["user_id", "created_at"], :name => "index_notes_on_user_id_and_created_at"
+  create_table "plans", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "years_old"
+    t.integer  "min_weight"
+    t.integer  "max_weight"
+    t.integer  "min_height"
+    t.integer  "max_height"
+    t.integer  "score"
+    t.string   "clothes_url"
+    t.string   "pants_url"
+    t.string   "shoes_url"
+    t.string   "other_dress_url"
+    t.integer  "min_price"
+    t.integer  "max_price"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "situation"
+    t.string   "gender"
+    t.string   "color"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "situation"
+    t.string   "gender"
+    t.integer  "min_weight"
+    t.integer  "max_weight"
+    t.integer  "min_height"
+    t.integer  "max_height"
+    t.integer  "min_price"
+    t.integer  "max_price"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

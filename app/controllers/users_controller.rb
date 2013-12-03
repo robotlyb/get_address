@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	def show 
 		@user = User.find(params[:id])
 #debugger
-#	@notes = @user.notes.paginate(page: params[:page])
+	@notes = @user.notes.paginate(page: params[:page])
 	end
 	def create
 		@user = User.new(params[:user])
