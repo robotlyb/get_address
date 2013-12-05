@@ -1,0 +1,50 @@
+<h3>
+	<% if flash[:notice]%>
+	<%= flash[:notice]%>
+	<% end%>
+</h3>
+<div class="row">
+	<span>
+		Hello!大家好！我遇到了不知怎么穿衣的烦恼，希望你能帮我解决～<br />
+		<% if @question.situation%>
+			我要参加的场合是<%= @question.situation%>,
+		<% end%>
+		<% if (@question.min_weight && @question.max_weight)%>
+			我的体重范围大概是在<%= @question.min_weight%>和<%= @question.max_weight%>之间，
+		<% end %>
+		<% if (@question.min_height && @question.max_height)%>
+			身高大概在<%= @question.min_height%>和<%= @question.max_height%>之间，
+		<% end %>
+		<% if (@question.min_price && @question.max_price)%>
+			我希望这一套装束的价格是在<%= @question.min_price%>和<%= @question.max_price%>之间，
+		<% end %>
+		<% if @question.color%>
+			我喜欢的颜色是<%= @question.color%>,
+		<% end %>
+		<% if @question.gender == "男"%>
+			对了，忘了说了，我是一位帅哥哦～
+		<% end %>
+
+		<% if @question.gender == "女"%>
+			对了，忘了说了，我是一位美女哦～
+		<% end %>
+		<% if @question.other_description%>
+			  我还希望，<%= @question.other_description%><br />
+		<% end %>
+		各位达人们要帮帮我哦～
+	</span>
+	<br />
+	<span class="timestamp">
+		由<%= @question.user.name%>发表于<%= time_ago_in_words(@question.created_at)%>之前
+	</span>
+</div>
+<div class="timestamp">
+	<section>
+		<%= link_to "分享我的经验","/edit_answer"%>
+	</section>
+</div>
+<!div>
+	<!%= if @question.answers.any?%>
+				
+	<!% end %>
+<!/div>

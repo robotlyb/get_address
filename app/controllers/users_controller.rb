@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 	end
 	def show 
 		@user = User.find(params[:id])
-#debugger
-	@notes = @user.notes.paginate(page: params[:page])
+		@questions = @user.questions.paginate(page: params[:page])
+debugger
 	end
 	def create
 		@user = User.new(params[:user])
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 			if @user.save
 				sign_in @user
 				flash[:notice] = "注册成功！你当前以#{@user.name}身份登录！"	
-				redirect_to @user
+				format.html{redirect_to @user}
 			else
 				format.html{render action: 'new'}
 			end

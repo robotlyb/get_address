@@ -3,14 +3,14 @@ class User < ActiveRecord::Base
 	before_create :create_remember_token 
 	attr_accessible :email, :name, :password, :password_digest, :password_confirmation
 	validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
-	has_many :notes
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 	validates :email, presence: true,
 										format: { with: VALID_EMAIL_REGEX},
 										uniqueness: { case_sensitive: false}
 	validates :password, length: { minimum: 6}
 	has_secure_password
-
+	has_many :questions
+	has_many :answers
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
 	end

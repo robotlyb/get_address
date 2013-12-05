@@ -1,0 +1,100 @@
+#encoding: utf-8
+<legend class="text-center">编辑问题</legend>
+<div class="row">
+	<div class="span6 offset2">
+		<div class="form-horizontal">
+			<%= form_for(@question) do |f|%>
+				<div class="control-group">
+					<%= f.label :intro, "问题概要：",class: "control-label"%>
+					<div class="controls">
+						<%= f.text_field :intro%>
+					</div>	
+				</div>
+
+				<div class="control-group">
+					<%= f.label :gender, "性别:", class: "control-label"%><br />
+					<%= f.radio_button :gender, "男"%><small>男   </small>
+					<%= f.radio_button :gender, "女"%><small>女   </small>		 
+				</div>
+				<h5>体重范围(kg)</h5>
+				<div class="control-group">	
+					<%= f.label :min_weight,"下限：", class: "control-label"%>
+					<%= f.radio_button :min_weight,"30"%><small>30 </small>
+					<%= f.radio_button :min_weight,"40"%><small>40 </small>
+					<%= f.radio_button :min_weight,"50"%><small>50 </small>
+					<%= f.radio_button :min_weight,"60"%><small>60 </small>
+					<%= f.radio_button :min_weight,"70"%><small>70 </small>
+					<%= f.radio_button :min_weight,"80"%><small>80 </small>		
+				</div>
+						 
+				<div class="control-group">	
+					<%= f.label :max_weight,"上限：", class: "control-label"%>
+					<%= f.radio_button :max_weight,"50"%><small>50 </small>
+					<%= f.radio_button :max_weight,"60"%><small>60</small>
+					<%= f.radio_button :max_weight,"70"%><small>70</small>
+					<%= f.radio_button :max_weight,"80"%><small>80</small>
+					<%= f.radio_button :max_weight,"90"%><small>90</small>
+					<%= f.radio_button :max_weight,"100"%><small>100</small>	
+				</div>
+				<h5>身高范围（cm）</h5>		 
+				<div class="control-group">
+					<%= f.label :min_height,"下限：", class: "control-label"%>
+					<%= f.radio_button :min_height,"140"%><small>140</small>
+					<%= f.radio_button :min_height,"150"%><small>150</small>
+					<%= f.radio_button :min_height,"160"%><small>160</small>
+					<%= f.radio_button :min_height,"170"%><small>170</small>
+					<%= f.radio_button :min_height,"180"%><small>180</small>
+							
+				</div>
+				<div class="control-group">
+					<%= f.label :max_height,"上限：", class: "control-label"%>
+					<%= f.radio_button :max_height,"160"%><small>160</small>
+					<%= f.radio_button :max_height,"170"%><small>170</small>
+					<%= f.radio_button :max_height,"180"%><small>180</small>
+					<%= f.radio_button :max_height,"190"%><small>190</small>
+					<%= f.radio_button :max_height,"200"%><small>200</small>		
+				</div>
+				<h5>价格范围(元)</h5>		 
+				<div class="control-group">
+					<%= f.label :min_price,"下限：", class: "control-label"%>
+					<%= f.radio_button :min_price,"0"%><small>0</small>
+					<%= f.radio_button :min_price,"100"%><small>100</small>
+					<%= f.radio_button :min_price,"200"%><small>200</small>
+					<%= f.radio_button :min_price,"300"%><small>300</small>
+					<%= f.radio_button :min_price,"400"%><small>400</small>
+					<%= f.radio_button :min_price,"500"%><small>500</small>		
+				</div>		 
+				<div class="control-group">
+					<%= f.label :max_price,"上限:", class: "control-label"%>
+					<%= f.radio_button :max_price,"200"%><small>200</small>
+					<%= f.radio_button :max_price,"400"%><small>400</small>
+					<%= f.radio_button :max_price,"600"%><small>600</small>
+					<%= f.radio_button :max_price,"800"%><small>800</small>
+					<%= f.radio_button :max_price,"1000"%><small>1000</small>
+					<%= f.radio_button :max_price,"1200"%><small>1200</small>
+				</div>		 
+				<div class="control-group">
+					<%= f.label :situation, "场合:", class: "control-label"%>
+					<div class="controls">
+						<%= f.text_field :situation %>
+					</div> 
+				<div class="control-group"> 
+					<%= f.label :color,"喜欢的颜色：", class: "control-label"%>
+					<div class="controls">
+						<%= f.text_field :color%>
+					</div> 
+				<div class="control-group">	
+						<%= f.label :oher_description, "其他描述：",class: "control-label"%>
+						<div class="controls">
+							<%= f.text_area :other_description%>
+						</div> 
+				</div>
+				<div class="control-group">
+						<%= f.submit "提交问题" ,class: "btn btn_info"%>
+				</div>	 
+				</div>	
+				</div>		 
+			<% end%>	
+		</div>
+	</div>
+</div>

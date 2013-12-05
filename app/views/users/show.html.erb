@@ -20,14 +20,23 @@
 			</h1>
 		</section>
 	</aside>
-	<!div class="span8">
-		<!% if @user.notes.any? %>
-			<!h3><!%= @user.notes.count%><!/h3>
-			<!%= will_paginate @notes%>
-			<!ol class="notes">
-				<!%= render @notes%>
-			<!/ol>
-			<!%= will_paginate @notes%>
-		<!% end %>	
-	<!/div>
+	<div class="span8">
+		<span>我问过的问题：</span>
+
+		<% if @user.questions.any? %>
+			<%= will_paginate @questions%>
+			<ol>
+
+			<%@questions.each do |question|%>
+			<li>
+				<span><%= link_to question.intro,question%></span>
+				<span class="timestamp">
+					 发表于<%= time_ago_in_words(question.created_at)%>之前
+				</span>
+			</li>	
+			<% end %>
+			</ol>
+			<%= will_paginate @questions%>
+		<% end %>	
+	</div>
 </div>

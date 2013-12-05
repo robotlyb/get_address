@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131203092410) do
+ActiveRecord::Schema.define(:version => 20131204232541) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -65,9 +65,15 @@ ActiveRecord::Schema.define(:version => 20131203092410) do
     t.integer  "min_price"
     t.integer  "max_price"
     t.string   "color"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "other_description"
+    t.string   "intro"
+    t.string   "remember_token"
+    t.string   "token"
   end
+
+  add_index "questions", ["token"], :name => "index_questions_on_token"
 
   create_table "users", :force => true do |t|
     t.string   "name"

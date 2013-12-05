@@ -10,11 +10,17 @@ GetAddress::Application.routes.draw do
 	resources :users
 	match '/signin', to: 'sessions#new', via: 'get'
 	match '/signout', to: 'sessions#destroy', via: 'delete'
-
+    
+	resources :questions
+	match "/ask_question", to: 'questions#new', via: 'get' 
 # The priority is based upon order of creation:
   # first created -> highest priority.
+  get "/questions_show" => 'questions#index', :as => "questions_show"
 
-  # Sample of regular route:
+	resources :answers
+	get "/edit_answer"=> 'answers#new', :as => "edit_answer"
+  match "/show_answers_to_the_question", to: 'answers#index', via: 'get' 	
+# Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 

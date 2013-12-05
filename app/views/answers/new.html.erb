@@ -1,0 +1,41 @@
+#encoding: utf-8
+<legend class="text-center">把我的经验分享给TA</legend>
+<section class="text-center"><br /><br />
+	<%= "注意：以下建议中请直接填写衣服的链接"%>
+</section>
+<br /><br /><br />
+<div class="row">
+	<div class="span6 offset3">
+		<div class="form-horizontal">
+			<%= form_for(@answer) do |f|%>
+				<div class="control-group">
+					<%= f.label :clothes_url,"建议的上衣：",class: "control-label"%>
+					<div class="controls">
+							<%= f.text_field :clothes_url, :style => "width: 280px"%>
+					 </div>
+				</div>
+				<div class="control-group">
+					<%= f.label :pants_url,"建议的裤子：",class: "control-label"%>
+					<div class="controls">	
+						<%= f.text_field :pants_url, :style => "width: 280px"%>
+					</div> 
+				</div>	
+				<div class="control-group">
+					<%= f.label :shoes_url,"建议的鞋子：",class: "control-label"%>
+					<div class="controls">
+						<%= f.text_field :shoes_url,:style => "width: 280px"%>
+					</div> 
+				</div>	
+				<div class="control-group">
+					<%= f.label :other_dress,"其他补充：",class: "control-label"%>
+					<div class="controls">
+						<%= f.text_area :other_dress,:style => "width: 280px;height: 200px"%>
+					</div> 
+				</div>
+				<div class="text-center">
+					<%= f.submit "我分享，我快乐！", class: "btn btn-primary"%>
+				</div>	
+			<% end %>	
+		</div>
+	</div>
+</div>

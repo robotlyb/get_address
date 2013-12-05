@@ -8,9 +8,13 @@
 				<%= render 'shared/user_info'%>
 			</section>
 			<section>
-				<%= render 'shared/note_form'%>
+				<%= link_to "我要提问", ask_question_path%>
+			</section>
+			<section>
+				<%= link_to "随便转转，看看大家都在问什么？", questions_show_path%>
 			</section>
 		</aside>
+
 	</div>
 <% else %>
 
