@@ -3,7 +3,7 @@
 	<%= flash[:notice]%>
 	<% end%>
 </h3>
-<div class="row">
+<div class="row span6 offset2">
 	<span>
 		Hello!大家好！我遇到了不知怎么穿衣的烦恼，希望你能帮我解决～<br />
 		<% if @question.situation%>
@@ -35,16 +35,45 @@
 	</span>
 	<br />
 	<span class="timestamp">
-		由<%= @question.user.name%>发表于<%= time_ago_in_words(@question.created_at)%>之前
+		由<%= @question.user.name%>发表于<%= time_ago_in_words(@question.created_at)%>之前,收到<%= @question.answers.count%>个回答
 	</span>
 </div>
-<div class="timestamp">
-	<section>
+<div>
+	<section class="btn btn-warning btn-large">
 		<%= link_to "分享我的经验","/edit_answer"%>
 	</section>
 </div>
-<!div>
-	<!%= if @question.answers.any?%>
+
+	<legend class="text-center">所有回答</legend>
+<div class="row span6 offset3">
+	<% if @question.answers.any?%>
+		<%= will_paginate @answers%>
+		<% @answers.each do |answer|%>
+			
+		<section>
+			
+			我看了你的问题，精心为你设计了一套方案：<br /> 
+			<% if answer.clothes_url%>
+				衣服：<a href="<%= answer.clothes_url%>"><%= answer.clothes_url%></a><br />
 				
-	<!% end %>
-<!/div>
+			<% end %>
+			<% if answer.pants_url%>
+				裤子：<a href="<%= answer.pants_url%>"><%= answer.pants_url%></a><br />
+			<% end %>
+			<% if answer.shoes_url%>
+				鞋子：<a href="<%= answer.shoes_url%>"><%= answer.shoes_url%></a><br />
+			<% end %>
+			<% if answer.other_dress%>
+				 我还有其他补充：<%= answer.other_dress%><br />
+			<% end %>
+			希望以上信息对你有用～<br />
+		<span class="timestamp">
+			<%= link_to "#{answer.user.name}",answer.user%>发表于<%= time_ago_in_words(answer.created_at)%>之前
+		</span>
+		</section>
+		<br /><br /><br />
+		<%= will_paginate @answers%>
+	<% end %>
+				
+	<% end %>
+</div>

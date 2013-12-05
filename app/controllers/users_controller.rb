@@ -5,15 +5,17 @@ class UsersController < ApplicationController
 	before_filter :correct_user, only: [:edit, :update]
 	def new
 		@user = User.new
+		rewrite_flag
 	end
 	def show 
 		@user = User.find(params[:id])
 		@questions = @user.questions.paginate(page: params[:page])
-debugger
+		rewrite_flag
 	end
 	def create
 		@user = User.new(params[:user])
 #	debbuger
+		rewrite_flag
 		respond_to do |format|
 			if @user.save
 				sign_in @user
@@ -26,9 +28,11 @@ debugger
 	end	
 	def edit
 		@user = User.find(params[:id])
+		rewrite_flag
 	end
 	def update
 		@user = User.find(params[:id])
+		rewrite_flag
 		if @user.update_attributes(params[:user])
 			flash[:success] = "修改成功！"
 			redirect_to @user

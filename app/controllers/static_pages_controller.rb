@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
-  def home
+	def home
+		rewrite_flag
 	end
 
   def help

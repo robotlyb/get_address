@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 	def create
 			@question = Question.new(params[:question])
 			@question.user_id = current_user.id
+			@question.visit = 0
 			respond_to do |format|
 				if @question.save
 					flash[:notice] = "提问成功!请耐心等待达人们的回答～"
@@ -24,9 +25,11 @@ class QuestionsController < ApplicationController
 	end
 	def show 
 		@question = Question.find(params[:id])
-		@answer = @question.answers.paginate(page: params[:page]) 
+	  visit_question @question	
+		@answers = @question.answers.paginate(page: params[:page]) 
 	end
 	def index
 		@question = Question.paginate(page: params[:page])
+		rewrite_flag
 	end
 end

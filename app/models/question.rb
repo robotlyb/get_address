@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :color, :gender, :max_height, :max_price, :max_weight, :min_height, :min_price, :min_weight, :situation, :user_id, :other_description, :intro
+  attr_accessible :color, :gender, :max_height, :max_price, :max_weight, :min_height, :min_price, :min_weight, :situation, :user_id, :other_description, :intro, :visit
 validates :intro, presence: true
 	belongs_to :user
 	default_scope -> { order('created_at DESC')}
