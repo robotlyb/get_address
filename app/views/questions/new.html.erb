@@ -4,8 +4,9 @@
 	<div class="span6 offset3">
 		<div class="form-horizontal">
 			<%= form_for(@question) do |f|%>
-				<div class="control-group">
+				
 				<h5 class="offset1">问题概要</h5>
+				<div class="control-group">
 					<div class="controls">
 						<%= f.text_field :intro%>
 					</div>	
@@ -86,7 +87,14 @@
 					<%= f.radio_button :max_price,"1000"%><small>1000</small>
 					<%= f.radio_button :max_price,"1200"%><small>1200</small>
 					</div>
-				</div>		 
+				</div>
+				<h5 class="offset1">年龄</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :years_old%>
+					</div>
+				</div>
+				
 				<h5 class="offset1">场合</h5>
 				<div class="control-group">
 							 

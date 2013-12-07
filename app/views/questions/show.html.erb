@@ -6,30 +6,34 @@
 <div class="row span6 offset2">
 	<span>
 		Hello!大家好！我遇到了不知怎么穿衣的烦恼，希望你能帮我解决～<br />
-		<% if @question.situation%>
-			我要参加的场合是<%= @question.situation%>,
+		<%= "#{@question.intro}"%><br />
+		<% if @question.situation.length != 0%>
+			<%= "我要参加的场合是#{@question.situation},"%>
 		<% end%>
 		<% if (@question.min_weight && @question.max_weight)%>
-			我的体重范围大概是在<%= @question.min_weight%>和<%= @question.max_weight%>之间，
+			<%= "我的体重范围大概是在#{@question.min_weight}和#{@question.max_weight}之间，"%>
 		<% end %>
 		<% if (@question.min_height && @question.max_height)%>
-			身高大概在<%= @question.min_height%>和<%= @question.max_height%>之间，
+			<%= "身高大概在#{@question.min_height}和#{@question.max_height}之间，"%>
 		<% end %>
 		<% if (@question.min_price && @question.max_price)%>
-			我希望这一套装束的价格是在<%= @question.min_price%>和<%= @question.max_price%>之间，
+			<%= "我希望这一套装束的价格是在#{@question.min_price}和#{@question.max_price}之间，"%>
 		<% end %>
-		<% if @question.color%>
-			我喜欢的颜色是<%= @question.color%>,
+		<% if @question.color.length != 0%>
+			<%= "我喜欢的颜色是#{@question.color},"%>
 		<% end %>
 		<% if @question.gender == "男"%>
-			对了，忘了说了，我是一位帅哥哦～
+			<%= "对了，忘了说了，我是一位帅哥哦～"%>
 		<% end %>
 
 		<% if @question.gender == "女"%>
-			对了，忘了说了，我是一位美女哦～
+			<%= "对了，忘了说了，我是一位美女哦～"%>
 		<% end %>
-		<% if @question.other_description%>
-			  我还希望，<%= @question.other_description%><br />
+		<% if @question.years_old.to_s.length != 0 %>
+				<%= "我的年龄是#{@question.years_old},"%>
+		<% end %>
+		<% if @question.other_description.length != 0%>
+			  <%= "我还希望，#{@question.other_description}."%><br />
 		<% end %>
 		各位达人们要帮帮我哦～
 	</span>
@@ -40,7 +44,7 @@
 </div>
 <div>
 	<section class="btn btn-warning btn-large">
-		<%= link_to "分享我的经验","/edit_answer"%>
+		<%= link_to "向TA分享我的经验","/edit_answer"%>
 	</section>
 </div>
 
@@ -53,17 +57,17 @@
 		<section>
 			
 			我看了你的问题，精心为你设计了一套方案：<br /> 
-			<% if answer.clothes_url%>
+			<% if answer.clothes_url.length != 0%>
 				衣服：<a href="<%= answer.clothes_url%>"><%= answer.clothes_url%></a><br />
 				
 			<% end %>
-			<% if answer.pants_url%>
+			<% if answer.pants_url.length != 0%>
 				裤子：<a href="<%= answer.pants_url%>"><%= answer.pants_url%></a><br />
 			<% end %>
-			<% if answer.shoes_url%>
+			<% if answer.shoes_url.length != 0%>
 				鞋子：<a href="<%= answer.shoes_url%>"><%= answer.shoes_url%></a><br />
 			<% end %>
-			<% if answer.other_dress%>
+			<% if answer.other_dress.length != 0%>
 				 我还有其他补充：<%= answer.other_dress%><br />
 			<% end %>
 			希望以上信息对你有用～<br />
@@ -75,5 +79,7 @@
 		<%= will_paginate @answers%>
 	<% end %>
 				
+	<% else %>
+		<%= "还没有人回答。。快来抢沙发吧～"%>
 	<% end %>
 </div>

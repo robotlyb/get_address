@@ -1,0 +1,139 @@
+#encoding: utf-8
+<legend class="text-center">编辑我要分享的方案</legend>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="form-horizontal">
+			<%= form_for(@plan) do |f|%>
+				<div class="control-group">
+					<h5 class="offset1">方案简述</h5>
+					<div class="controls">
+						<%= f.text_field :title, placeholder: "此处必填"%>
+					</div>
+				</div>
+
+				<h5 class="offset1">性别</h5>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.radio_button :gender,"男"%><small>男</small>
+						<%= f.radio_button :gender,"女"%><small>女</small>
+					</div>
+				</div>
+				<h5 class="offset1">身高范围（cm）</h5>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.label :min_height,"下限："%>
+						<%= f.radio_button :min_height,"140"%><small>140</small>
+						<%= f.radio_button :min_height,"150"%><small>150</small>
+						<%= f.radio_button :min_height,"160"%><small>160</small>
+						<%= f.radio_button :min_height,"170"%><small>170</small>
+						<%= f.radio_button :min_height,"180"%><small>180</small>
+
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.label :max_height,"上限："%>
+						<%= f.radio_button :max_height,"160"%><small>160</small>
+						<%= f.radio_button :max_height,"170"%><small>170</small>
+						<%= f.radio_button :max_height,"180"%><small>180</small>
+						<%= f.radio_button :max_height,"190"%><small>190</small>
+						<%= f.radio_button :max_height,"200"%><small>200</small>
+
+					</div>
+				</div>
+				<h5 class="offset1">体重范围（kg）</h5>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.label :min_weight,"下限："%>
+						<%= f.radio_button :min_weight,"30"%><small>30</small>
+						<%= f.radio_button :min_weight,"40"%><small>40</small>
+						<%= f.radio_button :min_weight,"50"%><small>50</small>
+						<%= f.radio_button :min_weight,"60"%><small>60</small>
+						<%= f.radio_button :min_weight,"70"%><small>70</small>
+						<%= f.radio_button :min_weight,"80"%><small>80</small>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.label :max_weight,"上限："%>
+						<%= f.radio_button :max_weight,"50"%><small>50</small>
+						<%= f.radio_button :max_weight,"60"%><small>60</small>
+						<%= f.radio_button :max_weight,"70"%><small>70</small>
+						<%= f.radio_button :max_weight,"80"%><small>80</small>
+						<%= f.radio_button :max_weight,"90"%><small>90</small>
+						<%= f.radio_button :max_weight,"100"%><small>100</small>
+					</div>
+				</div>
+				<h5 class="offset1">价格区间</h5>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.label :min_price,"下限："%>
+						<%= f.radio_button :min_price,"0"%><small>0</small>
+						<%= f.radio_button :min_price,"100"%><small>100</small>
+						<%= f.radio_button :min_price,"200"%><small>200</small>
+						<%= f.radio_button :min_price,"300"%><small>300</small>
+						<%= f.radio_button :min_price,"400"%><small>400</small>
+						<%= f.radio_button :min_price,"500"%><small>500</small>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="offset2">
+						<%= f.label :max_price,"上限："%>
+						<%= f.radio_button :max_price,"200"%><small>200</small>
+						<%= f.radio_button :max_price,"400"%><small>400</small>
+						<%= f.radio_button :max_price,"600"%><small>600</small>
+						<%= f.radio_button :max_price,"800"%><small>800</small>
+						<%= f.radio_button :max_price,"1000"%><small>1000</small>
+						<%= f.radio_button :max_price,"1200"%><small>1200</small>
+					</div>
+		
+				</div>
+				<h5 class="offset1">年龄</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :years_old%>
+					</div>
+				</div>
+				<h5 class="offset1">颜色类别</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :color%>
+					</div>
+				</div>
+				<h5 class="offset1">场合</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :situation%>
+					</div>
+				</div>
+				<h5 class="offset1">衣服链接</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :clothes_url%>
+					</div>
+				</div>
+				<h5 class="offset1">裤子链接</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :pants_url%>
+					</div>
+				</div>
+				<h5 class="offset1">鞋子链接</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_field :shoes_url%>
+					</div>
+				</div>
+				<h5 class="offset1">其他补充</h5>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.text_area :other_dress_url%>
+					</div>
+				</div><br /><br />
+				<div class="control-group text-center">
+					<%= f.submit "分享",class: "btn btn-primary"%>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

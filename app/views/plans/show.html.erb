@@ -1,0 +1,73 @@
+<h3>
+	<% if flash[:notice]%>
+	<%= flash[:notice] %>
+	<% end %>
+</h3>
+<div class="row span6 offset2">
+	<span>
+		我有一个穿衣的想法，分享给大家吧～<br />
+		<%= "#{@plan.title}"%><br />
+		<% if @plan.gender != 0%>
+			<%= "我的性别为#{@plan.gender},"%>
+		<% end %>
+		<% if @plan.years_old.to_s.length != 0%>
+				<%= "年龄为#{@plan.years_old},"%>
+		<% end %>
+		<% if (@plan.min_weight  && @plan.max_weight)%>
+			<%= "体重在#{@plan.min_weight}和#{@plan.max_weight}之间，"%>
+		<% end%>
+		<% if (@plan.min_height && @plan.max_height)%>
+			<%= "身高在#{@plan.min_height}和#{@plan.max_height}之间，"%>
+		<% end %>
+		<% if @plan.situation.length != 0%>
+			<%= "我参加的场合是#{@plan.situation},"%>
+		<% end%>
+
+		<% if @plan.color.length != 0%>
+			<%= "所属色系为#{@plan.color},"%>
+		<% end %>
+		<br />
+		<% if @plan.clothes_url.length != 0%>
+			<%= "衣服链接："%><a href="#{@plan.clothes_url}"><%= @plan.clothes_url%></a><br />
+		<% end %>
+		<% if @plan.pants_url.length !=0%>
+			<%= "裤子链接："%><a href="#{@plan.pants_url}"><%= @plan.pants_url%></a><br />
+		<% end%>
+		<% if @plan.shoes_url.length !=0%>
+			<%= "鞋子链接："%><a href="#{@plan.shoes_url}"><%= @plan.shoes_url%></a><br />
+		<% end %>
+		<% if @plan.other_dress_url.length != 0%>
+			<%= "其他补充：#{@plan.other_dress_url}"%>
+		<% end %>
+		欢迎给出更好的改进～
+	</span>
+	<br />
+	<span class="timestamp">
+		<%= @plan.user.name%>发表于<%= time_ago_in_words(@plan.created_at)%>之前，共有<%= @plan.comments.count%>个评论
+	</span>
+</div>
+<div>
+	<section class="btn btn-warning btn-large">
+		<%= link_to "评论","/edit_comment"%>
+	</section>
+</div>
+
+
+<legend class="text-center">所有评论</legend>
+<div class="row span6 offset3">
+	<% if @plan.comments.any?%>
+			<%= will_paginate @comments%>
+			<% @comments.each do |comment|%>
+				<section>
+						<%= "#{comment.content}"%><br />
+				<span class="timestamp">
+					<%= link_to "#{comment.user.name}",comment.user%>评论于<%= time_ago_in_words(answer.created_at)%>之前
+				</span>
+
+				</section><br /><br /><br />
+				<%= will_paginate @comments%>
+			<% end %>
+	<% else %>
+		<%= "还没有人评论。。快来抢沙发吧～"%>
+	<% end %>
+</div>

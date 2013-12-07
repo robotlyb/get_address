@@ -20,6 +20,13 @@ GetAddress::Application.routes.draw do
 	resources :answers
 	get "/edit_answer"=> 'answers#new', :as => "edit_answer"
   match "/show_answers_to_the_question", to: 'answers#index', via: 'get' 	
+	
+	resources :plans
+	get "/edit_plan" => 'plans#new', :as => "share_plan"
+	get "/show_all_plans" => 'plans#index', :as => "show_all_plans"
+	resources :comments
+	get "/edit_comment" => 'comments#new', :as => "edit_comment"
+	
 # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

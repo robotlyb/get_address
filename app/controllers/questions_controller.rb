@@ -1,15 +1,17 @@
 #encoding: utf-8
 class QuestionsController < ApplicationController
 	before_filter :signed_in_user, only: [:new, :create]
+	before_filter :rewrite_flag, only: [:new, :create, :index]
+	before_filter :rewrite_plan_flag
 	require 'debugger'
 	def new
 		@question = Question.new
-
 		respond_to do |format|
 			format.html
 		end
 	end
 	def create
+			
 			@question = Question.new(params[:question])
 			@question.user_id = current_user.id
 			@question.visit = 0
@@ -25,11 +27,10 @@ class QuestionsController < ApplicationController
 	end
 	def show 
 		@question = Question.find(params[:id])
-	  visit_question @question	
+	  visit_question @question
 		@answers = @question.answers.paginate(page: params[:page]) 
 	end
 	def index
 		@question = Question.paginate(page: params[:page])
-		rewrite_flag
 	end
 end

@@ -1,0 +1,18 @@
+<h3>
+
+<% if flash[:notice]%>
+	<%= flash[:notice]%>
+<% end%>
+</h3>
+<%= will_paginate @plan%>
+	<ul>
+		<% @plan.each do |plan|%>
+		<li>
+			<span><%= link_to plan.title,plan%></span>
+			<span class="timestamp">
+				<%= plan.user.name%>发表于<%= time_ago_in_words(plan.created_at)%>之前
+			</span>
+		</li>
+		<% end %>
+	</ul>
+<%= will_paginate @plan%>
