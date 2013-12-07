@@ -37,9 +37,26 @@ class UsersController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def show_my_question
+		@question = current_user.questions.paginate(page: params[:page])
+	end
+
+	def show_my_answer_question
+		@question = current_user.answers.questions.paginate(page: params[:page])
+	end
+
+	def show_my_plan
+		@plan = current_user.plans.paginate(page: params[:page])
+	end
+
+	def show_my_comment_plan
+		@plan = current_user.comments.plans.paginate(page: params[:page])
+	end
 	private
 		def correct_user
 			@user = User.find(params[:id])
 			redirect_to(root_path) unless current_user?(@user)
 		end
+
 end

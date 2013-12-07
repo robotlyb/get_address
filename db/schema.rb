@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206160908) do
+ActiveRecord::Schema.define(:version => 20131207080725) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20131206160908) do
     t.string   "color"
     t.string   "title"
     t.integer  "visit"
+    t.string   "key"
   end
 
   create_table "questions", :force => true do |t|
@@ -78,6 +79,13 @@ ActiveRecord::Schema.define(:version => 20131206160908) do
   end
 
   add_index "questions", ["token"], :name => "index_questions_on_token"
+
+  create_table "searches", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "key"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

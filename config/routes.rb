@@ -10,7 +10,11 @@ GetAddress::Application.routes.draw do
 	resources :users
 	match '/signin', to: 'sessions#new', via: 'get'
 	match '/signout', to: 'sessions#destroy', via: 'delete'
-    
+  get '/show_my_question' => 'users#show_my_question', :as => "myquestion"
+	get '/show_my_answered_question' => 'users#show_my_answer_question', :as => "answeredquestion"
+	get '/show_my_plan' => 'users#show_my_plan', :as => "myplan"
+	get '/show_my_comment_question' => 'users#show_my_comment_plan',:as => "commentplan"
+
 	resources :questions
 	match "/ask_question", to: 'questions#new', via: 'get' 
 # The priority is based upon order of creation:
@@ -24,8 +28,14 @@ GetAddress::Application.routes.draw do
 	resources :plans
 	get "/edit_plan" => 'plans#new', :as => "share_plan"
 	get "/show_all_plans" => 'plans#index', :as => "show_all_plans"
+	get "/show_search_plan" => 'plans#show_search_result', :as => "show_search_plan"
+
 	resources :comments
 	get "/edit_comment" => 'comments#new', :as => "edit_comment"
+	
+
+	resources :searches
+	post "/searches" => 'searches#create', :as => "search_plan"
 	
 # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

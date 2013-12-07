@@ -1,6 +1,6 @@
 <% if signed_in? %>
-	<% if flash[:success]%>
-		<%= flash[:success]%>
+	<% if flash[:notice]%>
+		<%= flash[:notice]%>
 	<% end %>	
 	<div class="row">
 		<aside class="span4">
@@ -11,15 +11,52 @@
 				<%= link_to "我要提问", ask_question_path%>
 			</section>
 			<section>
-				<%= link_to "随便转转，看看大家都在问什么？", questions_show_path%>
+				<%= link_to "我要分享",share_plan_path%>
+			</section>
+			<section>
+				<%= link_to "看看大家都在问什么？", questions_show_path%>
 		
 			</section>
+				
 			<section>
 				<%= link_to "看看达人们的分享", show_all_plans_path%>
 			</section>
 		</aside>
+		<!%= a = "中文"%>
+			
+		<!%= b = a.split("")%>
+		<!%= b.length %>
+		<!% for c in b do%>
 
+		<!%= c%>
+		<!% end %>
+		<div class="text-right">
+		<div class="form-search">
+		<%= form_for(@search) do |f|%>
+			<%= f.text_field :key, class: "input-medium search-query", placeholder: "按关键字搜索方案"%>
+			<%= f.submit "搜索",class: "btn btn-info"%>	
+		<% end%>
+		</div>
+		</div>	 
+		<!section>
+			<!%= render 'plans/search'%>
+		<!/section>		
 	</div>
+	<legend class="text-center">达人们的分享</legend>		
+	<div class="text-center">
+		<!%= if all_plan%>
+			<%all_plan.each do |plan|%>
+				<%= link_to plan.title,plan%><br />
+				 <span class="timestamp offset">
+				 
+					<%=link_to plan.user.name,plan.user%>分享于<%= time_ago_in_words(plan.created_at)%>之前
+				 <span><br /><br />
+				 
+			<% end%>	
+		<!% else%>
+				<!%= 还没有人分享。。%>
+		<!%end%>
+	</div>		
 <% else %>
 
 	<div class="center hero-unit">

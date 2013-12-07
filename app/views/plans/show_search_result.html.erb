@@ -1,0 +1,22 @@
+<h3 class="text-center">
+	搜索结果
+</h3>
+<div class="text_center">
+	<% if @plans%>
+		<!%= will_paginate @plan%>
+			<ul>
+				<% @plans.each do |plan|%>
+					<li>
+						<span><%= link_to plan.title,plan%></span><br />
+						<span class="timestamp">
+							<%= plan.user.name%>发表于<%= time_ago_in_words(plan.created_at)%>之前
+						</span>
+					</li><br /><br />
+				<% end%>
+			</ul>
+
+		<!%= will_paginate @plan%>
+	<% else%>
+		<%= "很遗憾。。没有找到符合结果的方案，"%><%= link_to "去问问达人们吧～",ask_question_path%>
+	<% end%>
+</div>

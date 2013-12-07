@@ -8,11 +8,11 @@
 	<ul>
 		<% @plan.each do |plan|%>
 		<li>
-			<span><%= link_to plan.title,plan%></span>
+			<span><%= link_to plan.title,plan%></span><br />
 			<span class="timestamp">
 				<%= plan.user.name%>发表于<%= time_ago_in_words(plan.created_at)%>之前
 			</span>
-		</li>
+		</li><br /><br />
 		<% end %>
 	</ul>
 <%= will_paginate @plan%>

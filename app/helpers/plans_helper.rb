@@ -25,5 +25,8 @@ module PlansHelper
 			end_visit current_plan
 		end
 	end
-	
+
+	def all_plan
+		@plans = Plan.all
+	end
 end

@@ -20,23 +20,17 @@
 			</h1>
 		</section>
 	</aside>
-	<div class="span8">
-		<span>我问过的问题：</span>
+	<section>
+		<%= link_to "我问过的问题",myquestion_path%>
+	</section>
+	<!section>
+		<!%= link_to "我回答过的问题",answeredquestion_path%>
 
-		<% if @user.questions.any? %>
-			<%= will_paginate @questions%>
-			<ol>
+	<!/section>
+	<section>
+		<%= link_to "我分享的方案",myplan_path%>
+	</section>
+	<!section>
+		<!%= link_to "我评论过的分享",commentplan_path%>
+	<!/section>
 
-			<%@questions.each do |question|%>
-			<li>
-				<span><%= link_to question.intro,question%></span>
-				<span class="timestamp">
-					 发表于<%= time_ago_in_words(question.created_at)%>之前
-				</span>
-			</li>	
-			<% end %>
-			</ol>
-			<%= will_paginate @questions%>
-		<% end %>	
-	</div>
-</div>

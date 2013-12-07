@@ -1,0 +1,22 @@
+<legend class="text-center">我回答过的问题</legend>
+<div class="row">
+	<div class="text-center">
+		<% if @question%>
+			<%= will_paginate @question%>
+					<ul>
+						<% @question.each do |question|%>
+							<li>
+								<span><%= link_to question.intro,question%></span>
+								<br />
+								<span class="timestamp">
+									<%=link_to question.user.name,question.user%>发表于<%= time_ago_in_words(question.created_at)%>之前
+								</span><br /><br />
+							</li>
+						<% end	%>
+					</ul>
+			<%= will_paginate @question%>
+		<% else%>
+			<%= "你还没有回答过任何问题哦.."%>	
+		<%end%>
+	</div>
+</div>

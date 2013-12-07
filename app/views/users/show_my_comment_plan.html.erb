@@ -1,0 +1,23 @@
+<legend class="text-center">我评论过的方案</legend>
+<div class="row">
+	<div class="text-center">
+		<% if @plan%>
+			<%= will_paginate @plan%>
+				<ul>
+					<% @plan.each do |plan|%>
+						<li>
+							<span><%= link_to plan.title,plan%></span>
+							<span class="timestamp">
+								<%= link_to plan.user.name,plan.user%>分享于<%= time_ago_in_words(plan.created_at)%>之前								
+							</span>
+						</li>
+					<% end%>
+				</ul>
+			
+			<%= will_paginate @plan%>
+		<%else%>
+			<%= "你还没有评论过别人的分享。。"%>
+		<% end%>
+	</div>
+</div>
+

@@ -1,0 +1,21 @@
+<legend class="text-left">我问过的问题</legend>
+<div class="row">
+	
+		<% if @question%>
+			<%= will_paginate @question%>
+				<ul>
+					<% @question.each do |question|%>
+						<li>
+							<span><%= link_to question.intro, question%></span><br />
+							<span class="timastamp">
+								发表于<%= time_ago_in_words(question.created_at)%>之前
+							</span><br /><br />
+						</li>
+					 <% end%>
+				</ul>
+
+			<%= will_paginate @question%>
+		<%else%>
+
+		<% end%>
+</div>

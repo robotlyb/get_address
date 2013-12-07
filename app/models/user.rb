@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 	has_many :answers
 	has_many :plans
 	has_many :comments
+	has_many :searches
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
 	end

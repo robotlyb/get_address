@@ -1,0 +1,22 @@
+<legend class="text-left">我分享的方案</legend>
+<div class="row">
+		<% if @plan%>
+			<%= will_paginate @plan%>
+			<ul>
+				<% @plan.each do |plan| %>
+						<li>
+							<span><%= link_to plan.title,plan%></span><br />
+							<span class="timestamp">
+								分享于<%= time_ago_in_words(plan.created_at)%>之前
+							</span>
+						</li><br /><br />
+				 <% end%>
+				
+			</ul>
+			<%= will_paginate @plan%>
+		<% else %>
+			<%= "你还没有任何分享。。"%>
+		<% end %>
+		
+	</div>
+
