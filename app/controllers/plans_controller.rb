@@ -14,7 +14,6 @@ require 'debugger'
 	def create
 		
 		@plan = Plan.new(params[:plan])
-	debugger
 		@plan.user_id = current_user.id
 		@plan.visit = 0
 		respond_to do |format|

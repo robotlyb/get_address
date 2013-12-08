@@ -47,7 +47,7 @@
 		<!%= if all_plan%>
 			<%all_plan.each do |plan|%>
 				<%= link_to plan.title,plan%><br />
-				 <span class="timestamp offset">
+				 <span class="timestamp offset3">
 				 
 					<%=link_to plan.user.name,plan.user%>分享于<%= time_ago_in_words(plan.created_at)%>之前
 				 <span><br /><br />
