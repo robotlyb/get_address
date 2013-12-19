@@ -16,7 +16,7 @@ GetAddress::Application.routes.draw do
 	get '/show_my_comment_question' => 'users#show_my_comment_plan',:as => "commentplan"
 
 	resources :questions
-	match "/ask_question", to: 'questions#new', via: 'get' 
+	get "/ask_question" => 'questions#new', :as => "ask_question" 
 # The priority is based upon order of creation:
   # first created -> highest priority.
   get "/questions_show" => 'questions#index', :as => "questions_show"

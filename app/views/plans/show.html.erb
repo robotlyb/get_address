@@ -28,13 +28,13 @@
 		<% end %>
 		<br />
 		<% if @plan.clothes_url.length != 0%>
-			<%= "衣服链接："%><a href="#{@plan.clothes_url}"><%= @plan.clothes_url%></a><br />
+			<%= "衣服链接："%><a href="<%= @plan.clothes_url%>" target="_blank"><%= @plan.clothes_url%></a><br />
 		<% end %>
 		<% if @plan.pants_url.length !=0%>
-			<%= "裤子链接："%><a href="#{@plan.pants_url}"><%= @plan.pants_url%></a><br />
+			<%= "裤子链接："%><a href="<%= @plan.pants_url%>" target="_blank"><%= @plan.pants_url%></a><br />
 		<% end%>
 		<% if @plan.shoes_url.length !=0%>
-			<%= "鞋子链接："%><a href="#{@plan.shoes_url}"><%= @plan.shoes_url%></a><br />
+			<%= "鞋子链接："%><a href="<%= @plan.shoes_url%>" target="_blank"><%= @plan.shoes_url%></a><br />
 		<% end %>
 		<% if @plan.other_dress_url.length != 0%>
 			<%= "其他补充：#{@plan.other_dress_url}"%>
@@ -44,6 +44,9 @@
 	<br />
 	<span class="timestamp">
 		<%= @plan.user.name%>发表于<%= time_ago_in_words(@plan.created_at)%>之前，共有<%= @plan.comments.count%>个评论
+	</span><br />
+	<span class="offset1">
+		用户评分:<%= @plan.avarage_score%>
 	</span>
 </div>
 <div>

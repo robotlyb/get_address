@@ -30,6 +30,18 @@
 										</li>
 									</ul>
 								</li>
+								<li id="fat-menu" class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">网站导航<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><%= link_to "我的分享", myplan_path%></li>
+										<li><%= link_to "我的问题", myquestion_path%></li>
+										<li><%= link_to "达人们的分享",show_all_plans_path%></li>
+										<li><%= link_to "大家的问题",questions_show_path%></li>
+										<li class="divider"></li>
+										<li><%= link_to "我要提问",ask_question_path%></li>
+										<li><%= link_to "我要分享",share_plan_path%></li>
+									</ul>
+								</li>
 						<% else %>		
 							<li><%= link_to "登录", signin_path%></li>	
 						<% end %>	

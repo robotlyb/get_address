@@ -16,6 +16,7 @@ require 'debugger'
 		@plan = Plan.new(params[:plan])
 		@plan.user_id = current_user.id
 		@plan.visit = 0
+		@plan.avarage_score = 0.0
 		respond_to do |format|
 			if @plan.save
 				flash[:notice] = "分享成功！"
@@ -33,6 +34,13 @@ require 'debugger'
 		@plan = Plan.find(params[:id])
 		visit_plan @plan
 		@comments = @plan.comments.paginate(page: params[:page])
+		if @plan.comments.any?
+			score = 0.0
+			@comments.each do |c|
+				score += c.score
+			end
+			@plan.avarage_score = (score / @plan.comments.count).round(2)
+		end
 	end
 	
 

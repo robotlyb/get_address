@@ -5,6 +5,22 @@
 			<%= form_for(@comment)  do |f|%>
 				<div class="control-group">
 					<div class="controls">
+						<%= f.label :score, "评分："%>
+						<%= f.radio_button :score,"0"%><small>0</small>
+						<%= f.radio_button :score,"1"%><small>1</small>
+						<%= f.radio_button :score,"2"%><small>2</small>
+						<%= f.radio_button :score,"3"%><small>3</small>
+						<%= f.radio_button :score,"4"%><small>4</small>
+						<%= f.radio_button :score,"5"%><small>5</small>
+						<%= f.radio_button :score,"6"%><small>6</small>
+						<%= f.radio_button :score,"7"%><small>7</small>
+						<%= f.radio_button :score,"8"%><small>8</small>
+						<%= f.radio_button :score,"9"%><small>9</small>
+						<%= f.radio_button :score,"10"%><small>10</small>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
 						<%= f.text_area :content,placeholder: "评论内容不可以为空"%>
 					 </div>
 				</div><br /><br />

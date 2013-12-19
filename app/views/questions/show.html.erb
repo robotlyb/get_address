@@ -58,17 +58,17 @@
 			
 			我看了你的问题，精心为你设计了一套方案：<br /> 
 			<% if answer.clothes_url.length != 0%>
-				衣服：<a href="<%= answer.clothes_url%>"><%= answer.clothes_url%></a><br />
+				<%= "衣服："%><a href="<%= answer.clothes_url%>" target="_blank"><%= answer.clothes_url%></a><br />
 				
 			<% end %>
 			<% if answer.pants_url.length != 0%>
-				裤子：<a href="<%= answer.pants_url%>"><%= answer.pants_url%></a><br />
+				<%= "裤子："%><a href="<%= answer.pants_url%>" target="_blank"><%= answer.pants_url%></a><br />
 			<% end %>
 			<% if answer.shoes_url.length != 0%>
-				鞋子：<a href="<%= answer.shoes_url%>"><%= answer.shoes_url%></a><br />
+				<%= "鞋子："%><a href="<%= answer.shoes_url%>" target="_blank"><%= answer.shoes_url%></a><br />
 			<% end %>
 			<% if answer.other_dress.length != 0%>
-				 我还有其他补充：<%= answer.other_dress%><br />
+				 <%= "我还有其他补充："%><%= answer.other_dress%><br />
 			<% end %>
 			希望以上信息对你有用～<br />
 		<span class="timestamp">
