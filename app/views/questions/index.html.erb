@@ -10,7 +10,7 @@
 		<li>
 			<span><%=	link_to question.intro,question%></span>
 			<span class="timestamp">
-				由<%= question.user.name%>发表于<%= time_ago_in_words(question.created_at)%>之前
+				<%= question.user.name%>发表于<%= time_ago_in_words(question.created_at)%>之前
 		</span>
 		</li>
 		<% end %>

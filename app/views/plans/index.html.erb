@@ -4,6 +4,14 @@
 	<%= flash[:notice]%>
 <% end%>
 </h3>
+<div class="text-right">
+	<div class="form-search">
+		<%= form_for(@search) do |f|%>
+			<%= f.text_field :key, class: "input-medium search-query",placeholder: "按关键字搜索方案"%>
+																																		<%= f.submit "搜索",class: "btn btn-info"%>
+		<% end %>
+	</div>
+</div>
 <%= will_paginate @plan%>
 	<ul>
 		<% @plan.each do |plan|%>
@@ -11,6 +19,9 @@
 			<span><%= link_to plan.title,plan%></span><br />
 			<span class="timestamp">
 				<%= plan.user.name%>发表于<%= time_ago_in_words(plan.created_at)%>之前
+			</span>
+			<span>
+				<%= "用户评分："%><%= plan.avarage_score%>
 			</span>
 		</li><br /><br />
 		<% end %>

@@ -30,6 +30,7 @@ require 'debugger'
 	end
  def index
 	@plan = Plan.paginate(page: params[:page])
+	@search = current_user.searches.build if signed_in?
  end
 	def show
 		@plan = Plan.find(params[:id])
@@ -41,6 +42,7 @@ require 'debugger'
 				score += c.score
 			end
 			@plan.avarage_score = (score / @plan.comments.count).round(2)
+			@plan.save
 		end
 	end
 	
@@ -60,6 +62,7 @@ require 'debugger'
 		condition += "gender LIKE '%#{keyword[len-1]}%' OR situation LIKE '%#{keyword[len-1]}%' OR title LIKE '%#{keyword[len-1]}%' OR color LIKE '%#{keyword[len-1]}%'"
 		succ = condition.to_s	
 		@plans = Plan.where("#{succ}")
-			
+		@plans.order("avarage_score DESC")
+		@search = current_user.searches.build if signed_in?
 	end
 end

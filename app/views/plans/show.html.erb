@@ -64,7 +64,7 @@
 				<section>
 						<%= "#{comment.content}"%><br />
 				<span class="timestamp">
-					<%= link_to "#{comment.user.name}",comment.user%>评论于<%= time_ago_in_words(comment.created_at)%>之前
+					<%= comment.user.name%>评论于<%= time_ago_in_words(comment.created_at)%>之前
 				</span>
 
 				</section><br /><br /><br />

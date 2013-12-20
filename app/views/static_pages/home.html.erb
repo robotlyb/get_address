@@ -22,14 +22,7 @@
 				<%= link_to "看看达人们的分享", show_all_plans_path%>
 			</section>
 		</aside>
-		<!%= a = "中文"%>
 			
-		<!%= b = a.split("")%>
-		<!%= b.length %>
-		<!% for c in b do%>
-
-		<!%= c%>
-		<!% end %>
 		<div class="text-right">
 		<div class="form-search">
 		<%= form_for(@search) do |f|%>
@@ -38,18 +31,14 @@
 		<% end%>
 		</div>
 		</div>	 
-		<!section>
-			<!%= render 'plans/search'%>
-		<!/section>		
 	</div>
 	<legend class="text-center">达人们的分享</legend>		
 	<div class="text-center">
-		<!%= if all_plan%>
 			<%all_plan.each do |plan|%>
 				<%= link_to plan.title,plan%><br />
 				 <span class="timestamp offset3">
 				 
-					<%=link_to plan.user.name,plan.user%>分享于<%= time_ago_in_words(plan.created_at)%>之前
+					<%= plan.user.name%>分享于<%= time_ago_in_words(plan.created_at)%>之前
 				 <span><br /><br />
 				 
 			<% end%>	

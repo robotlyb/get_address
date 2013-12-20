@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 	end
 	def show 
 		@user = User.find(params[:id])
-debugger
 	visit_user @user
 	end
 	def create
@@ -46,7 +45,6 @@ debugger
 	end
 	def other_user_plan
 	
-		debugger
 		@plan = visited_user.plans.paginate(page: params[:page])
 	end
 	def show_my_question
