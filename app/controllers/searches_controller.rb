@@ -1,6 +1,9 @@
 #encoding: utf-8
 class SearchesController < ApplicationController
 require 'debugger'
+	before_filter :rewrite_flag
+	before_filter :rewrite_user_flag
+	before_filter :rewrite_plan_flag
 	def create
 		@search = current_user.searches.build
 		@search.key = params["search"]["key"]

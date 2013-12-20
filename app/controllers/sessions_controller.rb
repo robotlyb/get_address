@@ -1,6 +1,9 @@
 #encoding: utf-8
 class SessionsController < ApplicationController
 	require 'debugger'
+	before_filter :rewrite_user_flag
+	before_filter :rewrite_flag
+	before_filter :rewrite_plan_flag
 	def new
 		
 	end

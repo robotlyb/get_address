@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
 	before_filter :signed_in_user, only: [:new, :create]
 	before_filter :rewrite_flag, only: [:new, :create, :index]
 	before_filter :rewrite_plan_flag
+	before_filter :rewrite_user_flag
 	require 'debugger'
 	def new
 		@question = Question.new
@@ -27,7 +28,7 @@ class QuestionsController < ApplicationController
 	end
 	def show 
 		@question = Question.find(params[:id])
-	  visit_question @question
+	visit_question @question
 		@answers = @question.answers.paginate(page: params[:page]) 
 	end
 	def index

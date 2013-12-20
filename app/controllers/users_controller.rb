@@ -10,11 +10,14 @@ class UsersController < ApplicationController
 	end
 	def show 
 		@user = User.find(params[:id])
-		@questions = @user.questions.paginate(page: params[:page])
+debugger
+	visit_user @user
 	end
 	def create
+		
 		@user = User.new(params[:user])
 #	debbuger
+		@user.visit = 0
 		respond_to do |format|
 			if @user.save
 				sign_in @user
@@ -30,6 +33,7 @@ class UsersController < ApplicationController
 	end
 	def update
 		@user = User.find(params[:id])
+		@user.visit = 0
 		if @user.update_attributes(params[:user])
 			flash[:success] = "修改成功！"
 			redirect_to @user
@@ -37,21 +41,34 @@ class UsersController < ApplicationController
 			render 'edit'
 		end
 	end
-
+  def other_user_question
+		@question = visited_user.questions.paginate(page: params[:page])
+	end
+	def other_user_plan
+	
+		debugger
+		@plan = visited_user.plans.paginate(page: params[:page])
+	end
 	def show_my_question
 		@question = current_user.questions.paginate(page: params[:page])
+		rewrite_user_flag
 	end
 
 	def show_my_answer_question
 		@question = current_user.answers.questions.paginate(page: params[:page])
+		rewrite_user_flag
 	end
 
 	def show_my_plan
+		
+		rewrite_user_flag
 		@plan = current_user.plans.paginate(page: params[:page])
 	end
 
 	def show_my_comment_plan
+		rewrite_user_flag
 		@plan = current_user.comments.plans.paginate(page: params[:page])
+		
 	end
 	private
 		def correct_user

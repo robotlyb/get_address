@@ -4,6 +4,7 @@ require 'debugger'
 	before_filter :signed_in_user
   before_filter :rewrite_flag
 	before_filter :rewrite_plan_flag, only: [:new, :create, :index,:search_plan,:show_search_plan]
+	before_filter :rewrite_user_flag
 	def new
 		@plan = Plan.new
 		respond_to do |format|

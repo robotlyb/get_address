@@ -14,7 +14,8 @@ GetAddress::Application.routes.draw do
 	get '/show_my_answered_question' => 'users#show_my_answer_question', :as => "answeredquestion"
 	get '/show_my_plan' => 'users#show_my_plan', :as => "myplan"
 	get '/show_my_comment_question' => 'users#show_my_comment_plan',:as => "commentplan"
-
+  get '/his_or_her_questions' => 'users#other_user_question', :as => "his_question"
+	get '/his_or_her_plans' => 'users#other_user_plan', :as => "his_plan" 
 	resources :questions
 	get "/ask_question" => 'questions#new', :as => "ask_question" 
 # The priority is based upon order of creation:

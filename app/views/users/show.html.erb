@@ -15,21 +15,27 @@
 				<% end %>
 			</h3>
 			<h1>
-				<%= gravatar_for @user%><br />
+				<%= gravatar_for @user%><br /><br /><br />
 				<%=@user.name%><br />
+				<%=@user.email%><br />
 			</h1>
 		</section>
 	</aside>
-	<section>
-		<%= link_to "我问过的问题",myquestion_path%>
-	</section>
-	<!section>
-		<!%= link_to "我回答过的问题",answeredquestion_path%>
+	<% if @user == current_user%>
+		<section>
+			<%= link_to "我问过的问题",myquestion_path%>
+		</section>
+		<!section>
+			<!%= link_to "我回答过的问题",answeredquestion_path%>
 
-	<!/section>
-	<section>
-		<%= link_to "我分享的方案",myplan_path%>
-	</section>
+		<!/section>
+		<section>
+			<%= link_to "我分享的方案",myplan_path%>
+		</section>
+	<% else %>
+		<%= link_to "TA的分享", his_plan_path(@user)%>
+		<%= link_to "TA的问题", his_question_path(@user)%>
+	<% end %>
 	<!section>
 		<!%= link_to "我评论过的分享",commentplan_path%>
 	<!/section>

@@ -1,7 +1,8 @@
 #encoding: utf-8
 class CommentsController < ApplicationController
 	before_filter :signed_in_user
-
+	before_filter :rewrite_user_flag
+	
 	def new
 		@comment = Comment.new
 	end	
