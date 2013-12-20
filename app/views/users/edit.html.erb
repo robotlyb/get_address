@@ -5,11 +5,6 @@
 
 <div class="row">
 	<div class="span6 offset3">
-			<aside class="span6">
-			<section align="left">
-				<%= gravatar_for @user%>
-					<h5><a href="http://gravatar.com/emails">更改头像</a></h5>
-			</section>
 		<div class="form-horizontal">	
 			<%= form_for(@user) do |f|%>
 				<%= render 'shared/error_messages', object: f.object%>

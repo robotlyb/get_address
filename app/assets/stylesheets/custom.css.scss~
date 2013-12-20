@@ -8,8 +8,7 @@ html{
 body {
 	padding-top: 60px;
         
-         background-image: image-url("back.jpg");
-				 backgroung-repeat: no-repeat;
+         background-image: image-url("bg.jpg");
         font-family:Georgia,serif; 
 }
 
