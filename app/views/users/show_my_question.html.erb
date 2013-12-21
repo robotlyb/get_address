@@ -8,7 +8,7 @@
 						<li>
 							<span><%= link_to question.intro, question%></span><br />
 							<span class="timastamp">
-								发表于<%= time_ago_in_words(question.created_at)%>之前
+								发表于<%= time_ago_in_words(question.created_at)%>之前,有<%= question.answers.count%>个回答
 							</span><br /><br />
 						</li>
 					 <% end%>
