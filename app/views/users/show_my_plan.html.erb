@@ -7,9 +7,14 @@
 						<li>
 							<span><%= link_to plan.title,plan%></span><br />
 							<span class="timestamp">
-								分享于<%= time_ago_in_words(plan.created_at)%>之前
+								分享于<%= time_ago_in_words(plan.created_at)%>之前,共有<%= plan.comments.count%>个评论
 							</span>
-						</li><br /><br />
+						</li>
+						<span class="offset1">
+							用户评分：<%= plan.avarage_score%>
+						</span>
+						<br /><br />
+
 				 <% end%>
 				
 			</ul>
