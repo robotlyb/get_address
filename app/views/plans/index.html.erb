@@ -12,6 +12,8 @@
 		<% end %>
 	</div>
 </div>
+<legend class="text-center">达人们的分享</legend>	
+<div class="offset3">		 
 <%= will_paginate @plan%>
 	<ul>
 		<% @plan.each do |plan|%>
@@ -27,3 +29,4 @@
 		<% end %>
 	</ul>
 <%= will_paginate @plan%>
+</div>		 

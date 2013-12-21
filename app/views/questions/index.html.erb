@@ -4,6 +4,8 @@
 		<%= flash[:notice]%>
 	<% end %>
 </h3>
+<legend class="text-center">看看大家都在问什么吧～</legend>
+<div class="offset3">
 <%= will_paginate @question%>
 	<ul>
 		<% @question.each do |question|%>
@@ -11,8 +13,10 @@
 			<span><%=	link_to question.intro,question%></span>
 			<span class="timestamp">
 				<%= question.user.name%>发表于<%= time_ago_in_words(question.created_at)%>之前
-		</span>
+		</span><br /><br />
 		</li>
 		<% end %>
 	</ul>
 <%= will_paginate @question%>
+
+</div>

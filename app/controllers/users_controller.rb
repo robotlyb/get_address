@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 			if @user.save
 				sign_in @user
 				flash[:notice] = "注册成功！你当前以#{@user.name}身份登录！"	
-				format.html{redirect_to @user}
+				format.html{redirect_to root_path}
 			else
 				format.html{render action: 'new'}
 			end
