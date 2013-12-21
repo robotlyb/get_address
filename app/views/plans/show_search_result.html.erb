@@ -11,6 +11,9 @@
 </div>
 <div class="text_center">
 	<% if @plans%>
+			<div class="text-left">
+					共有<%= @plans.count%>个相关方案
+				</div>
 		<!%= will_paginate @plan%>
 			<ul>
 				<% @plans.each do |plan|%>
